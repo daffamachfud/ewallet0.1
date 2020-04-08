@@ -6,6 +6,7 @@
     <string name="tv_daftar">Belum punya akun?</string>
     <string name="daftar">Daftar</string>
     <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="nama">Nama</string>
     <string name="des_registrasi">Daftar dengan email dan nomor telephone anda.</string>
 
 </resources>
