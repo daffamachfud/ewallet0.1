@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">e Wallet0.1</string>
+    <string name="login">Login</string>
+    <string name="des_login">Login dengan nomor telepon</string>
+    <string name="next">Next</string>
+    <string name="tv_daftar">Belum punya akun?</string>
+    <string name="daftar">Daftar</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="des_registrasi">Daftar dengan email dan nomor telephone anda.</string>
+
+</resources>

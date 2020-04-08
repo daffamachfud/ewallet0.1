@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "589273354389",
+    "firebase_url": "https://e-wallet-54f14.firebaseio.com",
+    "project_id": "e-wallet-54f14",
+    "storage_bucket": "e-wallet-54f14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589273354389:android:6545685612548258d58b9c",
+        "android_client_info": {
+          "package_name": "com.onoh.ewallet01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589273354389-gggkrr52afv1ejvk7dee9ql7sup5jfst.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onoh.ewallet01",
+            "certificate_hash": "44f447085fdabb2f2df2c0983446ba1c89295870"
+          }
+        },
+        {
+          "client_id": "589273354389-qq7ftd83fm0jb1sg41mmer9rq5g2kkol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTl4PTMCqXPVVgErj8qF9ErEcSLgDFg7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589273354389-qq7ftd83fm0jb1sg41mmer9rq5g2kkol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
