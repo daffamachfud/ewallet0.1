@@ -1,9 +1,11 @@
-package com.onoh.ewallet01;
+package com.onoh.ewallet01.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.onoh.ewallet01.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }finally {
-                    startActivity(new Intent(SplashScreenActivity.this,MainActivity.class));
+                    startActivity(new Intent(SplashScreenActivity.this,OtpActivity.class));
                     finish();
                 }
             }

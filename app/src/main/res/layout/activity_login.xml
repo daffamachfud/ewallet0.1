@@ -7,12 +7,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/ic_backgroundlogin1"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <LinearLayout
         android:id="@+id/linear_form_login"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="450dp"
         android:background="@drawable/background_white_radius"
         android:orientation="vertical"
         android:layout_marginTop="180dp"
@@ -51,6 +51,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/next"

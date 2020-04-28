@@ -8,5 +8,6 @@
     <string name="nomor_telepon">Nomor Telepon</string>
     <string name="nama">Nama</string>
     <string name="des_registrasi">Daftar dengan email dan nomor telephone anda.</string>
+    <string name="deskripsi_otp">Masukan kode OTP yang sudah dikrimkan ke nomor telepon anda</string>
 
 </resources>
