@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/Home"
+        android:title="@string/title_home_botnav"
+        android:icon="@drawable/ic_home"
+
+        />
+
+    <item
+        android:id="@+id/dompet"
+        android:title="@string/title_dompet_botnav"
+        android:icon="@drawable/ic_dashboard"
+        />
+
+    <item
+        android:id="@+id/scanqrcode"
+        android:icon="@drawable/ic_camera_alt"
+
+        />
+
+    <item
+        android:id="@+id/history"
+        android:title="@string/title_history_botnav"
+        android:icon="@drawable/ic_history"
+        />
+
+    <item
+        android:id="@+id/profile"
+        android:title="@string/title_profile_botnav"
+        android:icon="@drawable/ic_account"
+        />
+
+</menu>
