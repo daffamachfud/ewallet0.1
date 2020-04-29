@@ -29,12 +29,13 @@
             android:layout_height="wrap_content"
             >
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_email"
+                android:id="@+id/et_email_daftar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nama"
+                android:hint="@string/email"
                 android:background="@color/white"
                 android:layout_margin="20dp"
+                android:inputType="textEmailAddress"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,16 +44,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_nomor_telepon_login"
+                android:id="@+id/et_nomor_telepon_daftar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nomor_telepon"
                 android:background="@color/white"
                 android:layout_margin="20dp"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_daftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"

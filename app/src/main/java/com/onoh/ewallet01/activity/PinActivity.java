@@ -12,21 +12,23 @@ import com.andrognito.pinlockview.PinLockListener;
 import com.andrognito.pinlockview.PinLockView;
 import com.onoh.ewallet01.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PinActivity extends AppCompatActivity {
 
-    private PinLockView mPinLockView;
-    private IndicatorDots mIndicatorDots;
     private final static String TAG = PinActivity.class.getSimpleName();
     private final static String TRUE_CODE = "123456";
+
+    @BindView(R.id.pin_lock_view) PinLockView mPinLockView;
+    @BindView(R.id.indicator_dots) IndicatorDots mIndicatorDots;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
-
-        mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
-        mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
-
+        ButterKnife.bind(this);
         //attach lockview dengan indicator
         mPinLockView.attachIndicatorDots(mIndicatorDots);
 
