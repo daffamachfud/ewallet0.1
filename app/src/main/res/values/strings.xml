@@ -16,5 +16,7 @@
     <string name="title_payment_botnav">Payment</string>
     <string name="title_history_botnav">History</string>
     <string name="title_profile_botnav">Profile</string>
+    <string name="turn_off_flashlight">Off</string>
+    <string name="turn_on_flashlight">On</string>
 
 </resources>
