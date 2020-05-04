@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/icon_batal_bayar"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/ic_ask"
+        />
+
+    <TextView
+        android:id="@+id/tv_tanya_batal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ask_payment_confirm"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        />
+
+
+
+    <Button
+        android:id="@+id/btn_setuju_batal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setuju"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/grey"
+        />
+
+    <Button
+        android:id="@+id/btn_kembali_bayar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/kembali"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/colo2"
+        />
+
+
+</LinearLayout>

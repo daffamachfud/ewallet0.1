@@ -18,5 +18,29 @@
     <string name="title_profile_botnav">Profile</string>
     <string name="turn_off_flashlight">Off</string>
     <string name="turn_on_flashlight">On</string>
+    <string name="help_text_scan_qr">Pastikan QR code yang anda scan terlihat, jika dalam keadaan gelap atau kurang cahaya, gunakan fungsi flashlight dengan menekan tombol dibawah</string>
+    <string name="tv_bayar_ke">Bayar Ke :</string>
+    <string name="tv_saldo_anda">Saldo anda :</string>
+    <string name="text_batalkan">Batalkan</string>
+    <string name="text_bayar">Bayar</string>
+    <string name="txt_stat_pembayaran">Status Pembayaran :</string>
+    <string name="tv_no_transaksi">No Transaksi :</string>
+    <string name="ex_no_transaksi">XXXXXXXX</string>
+    <string name="nama_toko">TOKO BLABLA</string>
+    <string name="nominal">Nominal :</string>
+    <string name="ex_nominal_uang">Rp300.000</string>
+    <string name="lihat_riwayat">Lihat di riwayat</string>
+    <string name="tutup">Tutup</string>
+    <string name="ask_payment_confirm">Apakah anda yakin akan membatalkan pembayaran ?</string>
+    <string name="setuju">Setuju</string>
+    <string name="kembali">Kembali</string>
+    <string name="tv_metode_top_up">Pilih Metode Top Up</string>
+    <string name="merchant">Merchant</string>
+    <string name="tv_ket_top_up_merchant">Pembayaran dilakukan melalui merchant yang tersedia di kampus anda</string>
+    <string name="tv_pilih_metode">Pilih metode</string>
+    <string name="tv_ket_metode_bri">Pembayaran dilakukan melalui transfer ke vierual account BRI</string>
+    <string name="tv_transfer_ke">Transfer Ke :</string>
+    <string name="text_transfer">Transfer</string>
+
 
 </resources>

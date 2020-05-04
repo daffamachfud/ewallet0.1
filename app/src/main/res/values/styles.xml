@@ -8,4 +8,8 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="Theme.ToolbarSaya" parent="android:Theme.Holo">
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
 </resources>

@@ -27,6 +27,9 @@ import com.onoh.ewallet01.activity.BottomNavigationActivity.DompetActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.HistoryActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.PaymentActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.ProfileActivity;
+import com.onoh.ewallet01.activity.topup.TopupActivity;
+import com.onoh.ewallet01.activity.transfer.TransferActivity;
+import com.onoh.ewallet01.activity.transfer.TransferDetailActivity;
 import com.onoh.ewallet01.adapter.SliderAdapterExample;
 import com.onoh.ewallet01.fragment.HomeFragment;
 import com.onoh.ewallet01.model.SliderItem;
@@ -58,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     FloatingActionButton btn_scan_qr;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,14 +82,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         btn_topup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "HALAMAN TOPUP", Toast.LENGTH_SHORT).show();
+                Intent intent_topup = new Intent(MainActivity.this, TopupActivity.class);
+                startActivity(intent_topup);
             }
         });
 
         btn_transfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "HALAMAN TRANSFER", Toast.LENGTH_SHORT).show();
+                IntentIntegrator integratorTransfer = new IntentIntegrator(MainActivity.this);
+                integratorTransfer.setRequestCode(2);
+                integratorTransfer.setCaptureActivity(TransferActivity.class);
+                integratorTransfer.initiateScan();
             }
         });
 
@@ -102,18 +108,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         btn_scan_qr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new IntentIntegrator(MainActivity.this).setCaptureActivity(PaymentActivity.class).initiateScan();
-
-//                Intent payment_intent = new Intent(MainActivity.this,PaymentActivity.class);
-//                startActivity(payment_intent);
+//                new IntentIntegrator(MainActivity.this).setCaptureActivity(PaymentActivity.class).initiateScan();
+                IntentIntegrator integratorTransfer = new IntentIntegrator(MainActivity.this);
+                integratorTransfer.setCaptureActivity(PaymentActivity.class);
+                integratorTransfer.setRequestCode(1).initiateScan();
             }
         });
 
-
-
-
-
     }
+
 
 
     //Bottom navigasi
@@ -159,48 +162,39 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //We will get scan results here
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        IntentResult result = IntentIntegrator.parseActivityResult(resultCode, data);
         //check for null
-        if (result != null) {
-            if (result.getContents() == null) {
-                Toast.makeText(this, "Scan Cancelled", Toast.LENGTH_LONG).show();
-            } else {
-                //show dialogue with result
-                showResultDialogue(result.getContents());
-            }
-        } else {
-            // This is important, otherwise the result will not be passed to the fragment
-            super.onActivityResult(requestCode, resultCode, data);
+        if (result.getContents() == null) {
+            Toast.makeText(this, "Scan Cancelled", Toast.LENGTH_LONG).show();
+        } else if(requestCode == 2) {
+            showResultDialogueTransfer(result.getContents());
+        }else{
+            showResultDialoguePembayaran(result.getContents());
         }
     }
 
-    //method to construct dialogue with scan results
-    public void showResultDialogue(final String result) {
-        AlertDialog.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
-        } else {
-            builder = new AlertDialog.Builder(this);
-        }
-        builder.setTitle("Scan Result")
-                .setMessage("Scanned result is " + result)
-                .setPositiveButton("Copy result", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // continue with delete
-                        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                        ClipData clip = ClipData.newPlainText("Scan Result", result);
-                        clipboard.setPrimaryClip(clip);
-                        Toast.makeText(MainActivity.this, "Result copied to clipboard", Toast.LENGTH_SHORT).show();
+    //method to construct dialogue pemabayran
+    public void showResultDialoguePembayaran(final String result) {
 
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                        dialog.dismiss();
-                    }
-                })
-                .show();
+        //intent ke halaman detail payment
+        Intent intent_detail_pembayaran = new Intent(this,PaymentDetailActivity.class);
+        intent_detail_pembayaran.putExtra("hasilscanpembayaran",result);
+        startActivity(intent_detail_pembayaran);
+
+//
     }
+    //end shoResultDialoguePemabayran
+
+    //method to construct dialogue pemabayran
+    public void showResultDialogueTransfer(final String result) {
+
+        //intent ke halaman detail payment
+        Intent intent_detail_transfer = new Intent(this, TransferDetailActivity.class);
+        intent_detail_transfer.putExtra("hasilscantransfer",result);
+        startActivity(intent_detail_transfer);
+
+//
+    }
+    //end shoResultDialoguePemabayran
 
 }

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E1DEDE"
+    tools:context=".activity.transfer.TransferDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_transfer_details"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/Theme.ToolbarSaya"
+            android:background="@color/color1"
+            app:title="Transfer Summary"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colo2"
+        app:cardBackgroundColor="@color/color1">
+
+        <TextView
+            android:id="@+id/tv_transferke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_transfer_ke"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            />
+        <TextView
+            android:id="@+id/tv_nama_user_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daffa Radifanka - 0896626262"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/tv_bayarke"
+            android:layout_marginTop="100dp"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_masukan_nominal_transfer"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp">
+
+        <TextView
+            android:id="@+id/tv_masukan_nominal_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masukan Nominal"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/colo2"
+            app:helperTextTextColor="@color/colo2"
+            android:outlineSpotShadowColor="@color/colo2"
+            app:boxStrokeColor="@color/colo2"
+            app:counterTextColor="@color/colo2"
+            app:counterOverflowTextColor="@color/colo2"
+            android:outlineAmbientShadowColor="@color/colo2"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMasukanNominalTrasnfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Rp.-"
+                android:background="@color/white"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColorHint="@color/colo2"
+                android:outlineAmbientShadowColor="@color/colo2"
+                android:outlineSpotShadowColor="@color/colo2"
+                android:shadowColor="@color/colo2"
+                android:textColorHighlight="@color/colo2"
+                android:textColorLink="@color/colo2"
+                android:inputType="number"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardCornerRadius="20dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/cardview_masukan_nominal_transfer"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_saldo_anda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_saldo_anda"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp500.000"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_batalkan_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/text_batalkan"
+        android:background="@color/grey"
+        android:textColor="@color/colo2"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        />
+
+
+    <Button
+        android:id="@+id/btn_acc_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_batalkan_payment"
+        android:layout_alignParentBottom="true"
+        android:text="@string/text_transfer"
+        android:backgroundTint="@color/colo2"
+        android:background="@color/colo2"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        />
+
+
+</RelativeLayout>

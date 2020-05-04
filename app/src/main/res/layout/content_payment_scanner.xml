@@ -13,17 +13,27 @@
         android:id="@+id/zxing_barcode_scanner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:zxing_scanner_layout="@layout/custom_scanner" />
+        app:zxing_scanner_layout="@layout/custom_payment_scanner" />
 
     <!--  FlashLight Button-->
-    <Button
+    <ImageButton
         android:id="@+id/switch_flashlight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:text="Flash Light" />
+        android:background="@drawable/ic_buttonflashlightoff"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_close_scanner"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_close"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="40dp"
+        />
 
 
 

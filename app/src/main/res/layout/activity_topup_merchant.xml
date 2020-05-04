@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.topup.TopupMerchantActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_topup_booth"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/Theme.ToolbarSaya"
+            android:background="@color/color1"
+            app:title="Top up Booth"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:layout_width="227dp"
+        android:layout_height="103dp"
+        android:src="@drawable/ic_icontopupmerchant"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/toolbar_topup_booth"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:backgroundTint="#F1F1F1"
+        app:cardCornerRadius="10dp">
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_margin="20dp"
+         >
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Ikuti langkah-langkah berikut :"
+             android:textStyle="bold"
+             android:textColor="@color/black"
+             android:textSize="18sp"
+             />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="1. Kunjungi booth top up di kampus anda"
+             android:textColor="@color/black"
+             android:textSize="18sp"
+             android:layout_marginTop="10dp"
+             />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="2. Informasikan berapa nominal top up yang anda butuhkan kepada admin"
+             android:textColor="@color/black"
+             android:textSize="18sp"
+             android:layout_marginTop="10dp"
+             />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="3. Berikan uang tunai sesuai nominal top up pada admin"
+             android:textColor="@color/black"
+             android:textSize="18sp"
+             android:layout_marginTop="10dp"
+             />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="4. Informasikan kepada admin nomor telepon anda yang terdaftar pada aplikasi"
+             android:textColor="@color/black"
+             android:textSize="18sp"
+             android:layout_marginTop="10dp"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="5. Tunggu proses top up"
+             android:textColor="@color/black"
+             android:textSize="18sp"
+             android:layout_marginTop="10dp"
+             />
+
+
+
+
+     </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <!--Bar code Scanner window-->
+    <com.journeyapps.barcodescanner.BarcodeView
+        android:id="@+id/zxing_barcode_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:zxing_framing_rect_height="400dp"
+        app:zxing_framing_rect_width="300dp" />
+
+    <!--Full Camera Window with viewfinder-->
+    <com.journeyapps.barcodescanner.ViewfinderView
+        android:id="@+id/zxing_viewfinder_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:zxing_possible_result_points="@color/white"
+        app:zxing_result_view="@color/colo2"
+        app:zxing_viewfinder_laser="@color/white"
+        app:zxing_viewfinder_mask="@color/color1_transparent" />
+
+    <!--Help Text-->
+    <TextView
+        android:id="@+id/zxing_status_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:gravity="center"
+        android:text="Scan QR Code Teman Mu ! "
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colo2" />
+
+    <TextView
+        android:id="@+id/text_help_scan_qr_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/help_text_scan_qr"
+        android:textColor="#C5C5C5"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" />
+
+</merge>

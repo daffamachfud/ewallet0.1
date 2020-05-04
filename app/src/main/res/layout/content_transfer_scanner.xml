@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.transfer.TransferActivity"
+    tools:showIn="@layout/activity_transfer">
+
+    <!--  set custom layout for scanner-->
+    <com.journeyapps.barcodescanner.DecoratedBarcodeView
+        android:id="@+id/zxing_barcode_scanner_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:zxing_scanner_layout="@layout/custom_transfer_scanner" />
+
+    <!--  FlashLight Button-->
+    <ImageButton
+        android:id="@+id/switch_flashlight_transfer"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ic_buttonflashlightoff"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_close_transfer"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_close"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="40dp"
+        />
+
+
+
+
+</RelativeLayout>

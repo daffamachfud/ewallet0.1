@@ -5,11 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.BottomNavigationActivity.PaymentActivity">
+    tools:context=".activity.transfer.TransferActivity">
 
-
-
-    <include layout="@layout/content_payment_scanner" />
+    <include layout="@layout/content_transfer_scanner" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/icon_sukses_gagal_pembayaran"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/ic_ceklis"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_stat_pembayaran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_stat_pembayaran"
+        android:textColor="@color/black"
+       android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_result_stat_pembayaran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Berhasil !"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_no_transaksi"
+            android:text="@string/tv_no_transaksi"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="30dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_transaksi"
+            android:text="@string/ex_no_transaksi"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_bayar_ke"
+            android:text="@string/tv_bayar_ke"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/tv_no_transaksi"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nama_toko"
+            android:text="@string/nama_toko"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_bayar_ke"
+            android:layout_below="@id/id_transaksi"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_nominal"
+            android:text="@string/nominal"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/tv_bayar_ke"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nominal"
+            android:text="@string/ex_nominal_uang"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_nominal"
+            android:layout_below="@id/nama_toko"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+    <Button
+        android:id="@+id/btn_lihat_riwayat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lihat_riwayat"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btn_tutup_dialog"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/colo2"
+        />
+
+    <Button
+        android:id="@+id/btn_tutup_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tutup"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#F44336"
+        />
+
+
+</LinearLayout>
