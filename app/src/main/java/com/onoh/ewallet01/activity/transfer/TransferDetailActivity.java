@@ -39,6 +39,7 @@ public class TransferDetailActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        //back button toolbar
         toolbar_transfer_detail.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

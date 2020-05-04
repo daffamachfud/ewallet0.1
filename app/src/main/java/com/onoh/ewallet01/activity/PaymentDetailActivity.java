@@ -20,6 +20,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.onoh.ewallet01.R;
 import com.onoh.ewallet01.model.MoneyTextWatcher;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -43,10 +45,21 @@ public class PaymentDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment_detail);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar_payment_details);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         hasilScan();
         //format money currency
         etMasukanNominal.addTextChangedListener(new MoneyTextWatcher(etMasukanNominal));
         buttonPembayaran();
+
+
+        //back button toolbar
+        toolbar_payment_details.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
 
@@ -80,8 +93,6 @@ public class PaymentDetailActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
 
     public void alertDialogConfirmBayar(){

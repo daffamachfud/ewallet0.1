@@ -16,10 +16,11 @@
             android:id="@+id/toolbar_payment_details"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:theme="@style/Theme.ToolbarSaya"
             android:background="@color/color1"
             app:title="Payment Summary"
             app:titleTextColor="@color/white"
+            app:navigationIcon="?attr/homeAsUpIndicator"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
