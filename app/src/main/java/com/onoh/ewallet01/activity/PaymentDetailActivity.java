@@ -52,7 +52,6 @@ public class PaymentDetailActivity extends AppCompatActivity {
         etMasukanNominal.addTextChangedListener(new MoneyTextWatcher(etMasukanNominal));
         buttonPembayaran();
 
-
         //back button toolbar
         toolbar_payment_details.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

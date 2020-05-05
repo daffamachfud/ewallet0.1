@@ -9,6 +9,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,13 +21,19 @@ import android.widget.Toast;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.onoh.ewallet01.R;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.DompetActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.HistoryActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.PaymentActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.ProfileActivity;
+import com.onoh.ewallet01.activity.terima.TerimaActivity;
 import com.onoh.ewallet01.activity.topup.TopupActivity;
 import com.onoh.ewallet01.activity.transfer.TransferActivity;
 import com.onoh.ewallet01.activity.transfer.TransferDetailActivity;
@@ -100,7 +107,26 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         btn_terima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "HALAMAN TERIMA", Toast.LENGTH_SHORT).show();
+                //String valueQR = ngambil dari id si pengguna
+                //Tes value QR sementara menggunakan nilai berikut
+                String valueQR = "Daffa";
+                String namaUser = "Daffa";
+                String nomorTelepon = "089675762942";
+
+                MultiFormatWriter multiformatwritter = new MultiFormatWriter();
+                //kirim nilai value qr dengan intent
+                try {
+                    BitMatrix bitMatrix = multiformatwritter.encode(valueQR, BarcodeFormat.QR_CODE,250,250);
+                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                    Intent intent_terima = new Intent(MainActivity.this, TerimaActivity.class);
+                    intent_terima.putExtra("myqr",bitmap);
+                    intent_terima.putExtra("namaUser",namaUser);
+                    intent_terima.putExtra("nomorTelepon",nomorTelepon);
+                    startActivity(intent_terima);
+                }catch (WriterException e){
+                    e.printStackTrace();
+                }
             }
         });
 

@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.transfer.TransferDetailActivity"></activity>
+        <activity android:name=".activity.terima.TerimaActivity"></activity>
+        <activity android:name=".activity.transfer.TransferDetailActivity" />
         <activity android:name=".activity.transfer.TransferActivity" />
         <activity android:name=".activity.topup.TopupBriActivity" />
         <activity android:name=".activity.topup.TopupMerchantActivity" />
@@ -33,10 +34,10 @@
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.RegisterActivity" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
