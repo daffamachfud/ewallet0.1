@@ -43,4 +43,9 @@
     <string name="text_transfer">Transfer</string>
 
 
+  
+    <string name="tv_transfer_pakai_apa">Mau transfer pakai apa?</string>
+    <string name="tv_kirim_pake_notelpn">kirim Ke Nomor Telepon</string>
+
+
 </resources>

@@ -30,6 +30,8 @@ public class TransferDetailActivity extends AppCompatActivity {
     @BindView(R.id.toolbar_transfer_details)
     Toolbar toolbar_transfer_detail;
 
+    String nama_tujuan,nomorTeleponTujuan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,14 +50,32 @@ public class TransferDetailActivity extends AppCompatActivity {
         });
 
         hasilScan();
+        nomorTeleponTujuan();
+        //set textview tujuan transfer
+        if(nama_tujuan == null){
+            setTvTujuan(nomorTeleponTujuan);
+        }else if(nomorTeleponTujuan == null){
+            setTvTujuan(nama_tujuan);
+        }
+
+
         etNominalTransfer.addTextChangedListener(new MoneyTextWatcher(etNominalTransfer));
     }
 
 
 
     public void hasilScan(){
-        String nama_tujuan;
         nama_tujuan = getIntent().getStringExtra("hasilscantransfer");
-        tv_tujuan_trasnfer.setText(nama_tujuan);
     }
+
+    public void nomorTeleponTujuan(){
+        nomorTeleponTujuan = getIntent().getStringExtra("nomorTujuan");
+    }
+
+    public void setTvTujuan(String tujuan){
+        tv_tujuan_trasnfer.setText(tujuan);
+    }
+
+
+
 }

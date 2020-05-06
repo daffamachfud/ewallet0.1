@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1EEEE"
+    tools:context=".activity.transfer.TransferNomorActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_transferNoTelpn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_noTelpn"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/Theme.ToolbarSaya"
+            android:background="@color/color1"
+            app:title="Transfer Nomor Telepon"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:backgroundTint="@color/color1"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="40dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_gravity="center"
+                android:src="@drawable/ic_local_phone"
+                android:layout_marginTop="80dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/tv_kirim_pake_notelpn"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_masukan_nominal_transfer"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="40dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="190dp">
+
+        <TextView
+            android:id="@+id/tv_masukan_notelepon_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masukan Nomor Telepon Tujuan"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/colo2"
+            app:helperTextTextColor="@color/colo2"
+            android:outlineSpotShadowColor="@color/colo2"
+            app:boxStrokeColor="@color/colo2"
+            app:counterTextColor="@color/colo2"
+            app:counterOverflowTextColor="@color/colo2"
+            android:outlineAmbientShadowColor="@color/colo2"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMasukanNomorTujuanTransfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nomor Telepon"
+                android:background="@color/white"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColorHint="@color/colo2"
+                android:outlineAmbientShadowColor="@color/colo2"
+                android:outlineSpotShadowColor="@color/colo2"
+                android:shadowColor="@color/colo2"
+                android:textColorHighlight="@color/colo2"
+                android:textColorLink="@color/colo2"
+                android:inputType="number"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/color1">
+
+        <Button
+            android:id="@+id/btn_lanjut_transfer_notelepon"
+            android:layout_width="230dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colo2"
+            android:text="lanjut"
+            />
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

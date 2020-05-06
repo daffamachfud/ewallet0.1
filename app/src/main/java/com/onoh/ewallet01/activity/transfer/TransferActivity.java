@@ -3,6 +3,7 @@ package com.onoh.ewallet01.activity.transfer;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,54 +22,46 @@ import com.google.zxing.integration.android.IntentResult;
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 import com.onoh.ewallet01.R;
+import com.onoh.ewallet01.activity.BottomNavigationActivity.PaymentActivity;
+import com.onoh.ewallet01.activity.MainActivity;
 import com.onoh.ewallet01.activity.PaymentDetailActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TransferActivity extends AppCompatActivity implements DecoratedBarcodeView.TorchListener {
+public class TransferActivity extends AppCompatActivity  {
 
-    //inisiasi DecoratedBarcodeView
-    private CaptureManager capture;
-    private boolean isFlashLightOn = false;
-
-    @BindView(R.id.zxing_barcode_scanner_transfer)
-    DecoratedBarcodeView barcodeScannerTransferView;
-    @BindView(R.id.switch_flashlight_transfer)
-    ImageButton switchFlashlightButton;
-    @BindView(R.id.btn_close_transfer)
-    ImageButton btnCloseScanner;
+    @BindView(R.id.btn_transfer_qrcode)
+    ImageButton btnTransferQrcode;
+    @BindView(R.id.btn_trasnfer_noTelpn)
+    ImageButton btnTransferNotelepon;
+    @BindView(R.id.toolbar_transfer)
+    Toolbar toolbar_transfer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer);
         ButterKnife.bind(this);
-        doRequestCameras();
 
-//        setSupportActionBar(toolbar);
-        //set torch listener
-        barcodeScannerTransferView.setTorchListener(this);
+        btnTransferQrcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new IntentIntegrator(TransferActivity.this).setCaptureActivity(TransferQrcodeActivity.class).initiateScan();
+            }
+        });
 
-        //fungsi flashlight di hp, jika tidak ada flash maka button hilang
-        if (!hasFlash()) {
-            switchFlashlightButton.setVisibility(View.GONE);
-        } else {
-            switchFlashlightButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    switchFlashlight();
-                }
-            });
-        }
+        btnTransferNotelepon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_trasnfer_noTelpn = new Intent(TransferActivity.this,TransferNomorActivity.class);
+                startActivity(intent_trasnfer_noTelpn);
+            }
+        });
 
-        //start capture
-        capture = new CaptureManager(this, barcodeScannerTransferView);
-        capture.initializeFromIntent(getIntent(), savedInstanceState);
-        capture.decode();
 
-        //close button scanner
-        btnCloseScanner.setOnClickListener(new View.OnClickListener() {
+        //back button toolbar
+        toolbar_transfer.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -76,73 +69,38 @@ public class TransferActivity extends AppCompatActivity implements DecoratedBarc
         });
     }
 
-    //cek kamera device punya flashlight
-    private boolean hasFlash() {
-        return getApplicationContext().getPackageManager()
-                .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-    }
-
-    public void switchFlashlight() {
-        if (isFlashLightOn) {
-            barcodeScannerTransferView.setTorchOff();
-            isFlashLightOn = false;
-        } else {
-            barcodeScannerTransferView.setTorchOn();
-            isFlashLightOn = true;
-        }
-
-    }
 
     @Override
-    public void onTorchOn() {
-        Drawable gambarOn = getResources().getDrawable(R.drawable.ic_buttonflashlighton);
-        switchFlashlightButton.setBackgroundDrawable(gambarOn);
-    }
-
-    @Override
-    public void onTorchOff() {
-        Drawable gambarOff = getResources().getDrawable(R.drawable.ic_buttonflashlightoff);
-        switchFlashlightButton.setBackgroundDrawable(gambarOff);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        capture.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        capture.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        capture.onDestroy();
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        capture.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return barcodeScannerTransferView.onKeyDown(keyCode, event) || super.onKeyDown(keyCode, event);
-    }
-
-    //request perrmission camera
-    public void doRequestCameras(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{(Manifest.permission.CAMERA)}, 100);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //We will get scan results here
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        //check for null
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Scan Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                //show dialogue with result
+                showResultDialogueTransfer(result.getContents());
             }
+        } else {
+            // This is important, otherwise the result will not be passed to the fragment
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
+
+
+    //method to construct dialogue pemabayran
+    public void showResultDialogueTransfer(final String result) {
+
+        //intent ke halaman detail payment
+        Intent intent_detail_transfer = new Intent(this, TransferDetailActivity.class);
+        intent_detail_transfer.putExtra("hasilscantransfer",result);
+        startActivity(intent_detail_transfer);
+
+//
+    }
+    //end shoResultDialoguePemabayran
 
 
 

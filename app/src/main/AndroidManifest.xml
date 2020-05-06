@@ -10,14 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.terima.TerimaActivity"></activity>
+        <activity android:name=".activity.transfer.TransferQrcodeActivity"></activity>
+        <activity android:name=".activity.transfer.TransferNomorActivity" />
+        <activity android:name=".activity.terima.TerimaActivity" />
         <activity android:name=".activity.transfer.TransferDetailActivity" />
         <activity android:name=".activity.transfer.TransferActivity" />
         <activity android:name=".activity.topup.TopupBriActivity" />
         <activity android:name=".activity.topup.TopupMerchantActivity" />
         <activity android:name=".activity.topup.TopupActivity" />
         <activity android:name=".activity.PaymentDetailActivity" />
-        <activity android:name=".activity.BottomNavigationActivity.HistoryActivity" />
+        <activity android:name=".activity.BottomNavigationActivity.history.HistoryActivity" />
         <activity android:name=".activity.BottomNavigationActivity.PaymentActivity" />
         <activity android:name=".activity.BottomNavigationActivity.ProfileActivity" />
         <activity android:name=".activity.BottomNavigationActivity.DompetActivity" />
@@ -34,10 +36,10 @@
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.RegisterActivity" />
     </application>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 </manifest>
