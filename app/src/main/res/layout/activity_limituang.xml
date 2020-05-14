@@ -4,73 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1EEEE"
-    tools:context=".activity.transfer.TransferNomorActivity">
+    android:background="@color/white"
+    tools:context=".activity.limituang.LimituangActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar_transferNoTelpn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/appbar_limituang"
         android:background="@color/color1">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_noTelpn"
+            android:id="@+id/toolbar_limituang"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/Theme.ToolbarSaya"
             android:background="@color/color1"
-            app:title="Transfer Nomor Telepon"
+            app:title="Limit Penggunaan"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
-
-
     <androidx.cardview.widget.CardView
+        android:layout_below="@+id/appbar_limituang"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="170dp"
         android:backgroundTint="@color/color1"
-        app:cardCornerRadius="20dp"
-        android:layout_marginTop="40dp">
+        android:id="@+id/cardview_limit"
+        >
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-               android:layout_gravity="center"
-                android:src="@drawable/ic_local_phone"
-                android:layout_marginTop="80dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Limit"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="@string/tv_kirim_pake_notelpn"
-                android:layout_gravity="center"
+                android:textSize="28sp"
                 />
-        </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batasi penggunaan uang anda"
+                android:textColor="@color/white"
+                android:textSize="28sp"/>
+            >
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
 
+
+    <LinearLayout
+        android:id="@+id/layout_tv_saldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/cardview_limit"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saldo anda,"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            />
+
+        <TextView
+            android:id="@+id/saldo_limit_uang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp.2.000.000"
+            android:textColor="@color/black"
+            android:textSize="24sp"/>
+        >
+    </LinearLayout>
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_masukan_nominal_transfer"
+        android:id="@+id/cardview_masukan_limit"
         android:layout_width="350dp"
         android:layout_height="150dp"
         app:cardCornerRadius="40dp"
         android:layout_centerInParent="true"
-        android:layout_marginTop="190dp">
+       >
 
         <TextView
-            android:id="@+id/tv_masukan_notelepon_transfer"
+            android:id="@+id/tv_masukan_nominal_limit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Masukan Nomor Telepon Tujuan"
@@ -93,10 +123,10 @@
             android:outlineAmbientShadowColor="@color/color2"
             >
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMasukanNomorTujuanTransfer"
+                android:id="@+id/etMasukanLimit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nomor Telepon"
+                android:hint="Set limit "
                 android:background="@color/white"
                 android:layout_marginTop="50dp"
                 android:layout_marginStart="30dp"
@@ -113,7 +143,6 @@
 
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -122,12 +151,12 @@
         android:backgroundTint="@color/color1">
 
         <Button
-            android:id="@+id/btn_lanjut_transfer_notelepon"
+            android:id="@+id/btn_setlimit"
             android:layout_width="230dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
             android:backgroundTint="@color/color2"
-            android:text="lanjut"
+            android:text="Perbarui"
             />
 
 

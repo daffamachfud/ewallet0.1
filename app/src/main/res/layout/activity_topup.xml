@@ -15,7 +15,7 @@
         android:layout_toLeftOf="@id/tv_pilih_metode_top_up"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colo2"
+        android:backgroundTint="@color/color2"
         />
 
     <TextView
@@ -80,7 +80,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:backgroundTint="@color/white"
-                       android:textColor="@color/colo2"
+                       android:textColor="@color/color2"
                        android:text="@string/tv_pilih_metode"
                        android:textStyle="bold"
                        android:layout_gravity="bottom"
@@ -145,7 +145,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:textColor="@color/colo2"
+                    android:textColor="@color/color2"
                     android:text="@string/tv_pilih_metode"
                     android:textStyle="bold"
                     android:layout_gravity="bottom"

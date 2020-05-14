@@ -43,9 +43,17 @@
     <string name="text_transfer">Transfer</string>
 
 
-  
     <string name="tv_transfer_pakai_apa">Mau transfer pakai apa?</string>
     <string name="tv_kirim_pake_notelpn">kirim Ke Nomor Telepon</string>
+    <string name="title_activity_history">HistoryActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+  
+    <string name="nama_polban">Politeknik Negeri Bandung</string>
+    <string name="nama_itb">Institut Teknologi Bandung</string>
+    <string name="nama_ui">Universitas Indonesia</string>
+    <string name="tv_nim">Masukan Nomor Induk Mahasiswa</string>
 
 
 </resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    tools:context=".activity.ukt.UktActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_ukt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_ukt"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/Theme.ToolbarSaya"
+            android:background="@color/color1"
+            app:title="Pembayaran UKT"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_search_ukt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar_ukt"
+        android:background="@color/white">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/color2"
+            app:helperTextTextColor="@color/color2"
+            android:outlineSpotShadowColor="@color/color2"
+            app:boxStrokeColor="@color/color2"
+            app:counterTextColor="@color/color2"
+            app:counterOverflowTextColor="@color/color2"
+            android:outlineAmbientShadowColor="@color/color2"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSearchUniversitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cari Universitas"
+                android:background="@color/color_background"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColorHint="@color/color2"
+                android:outlineAmbientShadowColor="@color/color2"
+                android:outlineSpotShadowColor="@color/color2"
+                android:shadowColor="@color/color2"
+                android:textColorHighlight="@color/color2"
+                android:textColorLink="@color/color2"
+                android:inputType="number"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/cardview_search_ukt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list_universitas"
+            />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

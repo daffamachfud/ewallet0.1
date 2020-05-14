@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/color_background"
     >
 
         <RelativeLayout
@@ -116,7 +116,7 @@
             android:layout_gravity="center"
             android:tint="@color/grey"
             android:src="@drawable/ic_blackberry"
-            app:backgroundTint="@color/colo2"
+            app:backgroundTint="@color/color2"
             android:foregroundTint="@color/white"
 
             android:scaleType="center" />

@@ -25,13 +25,12 @@ import com.google.zxing.integration.android.IntentResult;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.onoh.ewallet01.R;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.DompetActivity;
-import com.onoh.ewallet01.activity.BottomNavigationActivity.history.HistoryActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.PaymentActivity;
 import com.onoh.ewallet01.activity.BottomNavigationActivity.ProfileActivity;
+import com.onoh.ewallet01.activity.BottomNavigationActivity.history.HistoryActivity;
 import com.onoh.ewallet01.activity.terima.TerimaActivity;
 import com.onoh.ewallet01.activity.topup.TopupActivity;
 import com.onoh.ewallet01.activity.transfer.TransferActivity;
-import com.onoh.ewallet01.activity.transfer.TransferDetailActivity;
 import com.onoh.ewallet01.fragment.HomeFragment;
 
 import butterknife.BindView;
@@ -148,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 startActivity(payment_intent);
                 break;
             case R.id.history:
-                Intent history_intent = new Intent(MainActivity.this,HistoryActivity.class);
+                Intent history_intent = new Intent(MainActivity.this, HistoryActivity.class);
                 startActivity(history_intent);
                 break;
             case R.id.profile:

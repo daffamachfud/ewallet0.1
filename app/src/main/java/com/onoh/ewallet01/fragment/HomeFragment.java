@@ -1,17 +1,21 @@
 package com.onoh.ewallet01.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.onoh.ewallet01.R;
+import com.onoh.ewallet01.activity.DonasiActivity;
+import com.onoh.ewallet01.activity.EventActivity;
+import com.onoh.ewallet01.activity.ukt.UktActivity;
 import com.onoh.ewallet01.adapter.SliderAdapterExample;
 import com.onoh.ewallet01.model.SliderItem;
 import com.smarteist.autoimageslider.IndicatorAnimations;
@@ -20,17 +24,57 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment {
 
     private SliderView sliderView;
     private SliderAdapterExample adapter;
 
+    @BindView(R.id.btn_ukt)
+    ImageButton btn_ukt;
+    @BindView(R.id.btn_donasi)
+    ImageButton btn_donasi;
+    @BindView(R.id.btn_tiket)
+    ImageButton btn_tiket;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        ButterKnife.bind(this,view);
+
+        //button ukt
+        btn_ukt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentUkt = new Intent(getActivity(), UktActivity.class);
+                startActivity(intentUkt);
+            }
+        });
+
+        //button donasi
+        btn_donasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentDonasi = new Intent(getActivity(), DonasiActivity.class);
+                startActivity(intentDonasi);
+            }
+        });
+
+        //button tiket
+        btn_tiket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentTiket = new Intent(getActivity(), EventActivity.class);
+                startActivity(intentTiket);
+            }
+        });
+
         //Slider Image
         sliderView = view.findViewById(R.id.imageSlider);
 

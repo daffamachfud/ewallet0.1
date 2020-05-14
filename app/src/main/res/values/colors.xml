@@ -6,8 +6,10 @@
     <color name="dark_grey">#505050</color>
     <color name="color1">#272A36</color>
     <color name="color1_transparent">#99272A36</color>
-
-    <color name="colo2">#0099F2</color>
+    <color name="color_background">#E8EEF3</color>
+    <color name="color2">#0099F2</color>
+    <color name="color_judul">#121212</color>
+    <color name="color_subjudul">#AAAAAA</color>
 
 
 
