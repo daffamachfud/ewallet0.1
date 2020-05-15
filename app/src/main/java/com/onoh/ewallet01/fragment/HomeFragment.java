@@ -13,8 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.onoh.ewallet01.R;
-import com.onoh.ewallet01.activity.DonasiActivity;
-import com.onoh.ewallet01.activity.EventActivity;
+import com.onoh.ewallet01.activity.donasi.DonasiActivity;
+import com.onoh.ewallet01.activity.event.EventActivity;
 import com.onoh.ewallet01.activity.ukt.UktActivity;
 import com.onoh.ewallet01.adapter.SliderAdapterExample;
 import com.onoh.ewallet01.model.SliderItem;

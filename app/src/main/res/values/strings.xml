@@ -49,11 +49,13 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
 
-  
+
     <string name="nama_polban">Politeknik Negeri Bandung</string>
     <string name="nama_itb">Institut Teknologi Bandung</string>
     <string name="nama_ui">Universitas Indonesia</string>
     <string name="tv_nim">Masukan Nomor Induk Mahasiswa</string>
+    <string name="contoh_deskripsi_event">Contoh Deskripsi dari acara berikut adalah bla blab lab lab lab labalb lab lbalbalb lablbalblabablb albl bal</string>
+    <string name="contoh">contoh</string>
 
 
 </resources>

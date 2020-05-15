@@ -10,10 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ukt.KonfirmUktActivity"></activity>
+        <activity android:name=".activity.donasi.FormDonasiActivity"></activity>
+        <activity android:name=".activity.donasi.DetailDonasiActivity" />
+        <activity android:name=".activity.event.BeliTiketActivity" />
+        <activity android:name=".activity.event.DetailEventActivity" />
+        <activity android:name=".activity.ukt.KonfirmUktActivity" />
         <activity android:name=".activity.ukt.FormUktActivity" />
-        <activity android:name=".activity.EventActivity" />
-        <activity android:name=".activity.DonasiActivity" />
+        <activity android:name=".activity.event.EventActivity" />
+        <activity android:name=".activity.donasi.DonasiActivity" />
         <activity android:name=".activity.ukt.UktActivity" />
         <activity android:name=".activity.limituang.LimituangActivity" />
         <activity
