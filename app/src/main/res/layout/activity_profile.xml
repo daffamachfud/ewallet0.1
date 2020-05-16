@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.BottomNavigationActivity.ProfileActivity"
-    android:background="#DFDADA"
+    android:background="@color/color_background"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E8E7E7"
+        android:background="@color/color_background"
         >
 
         <com.google.android.material.appbar.AppBarLayout
@@ -30,10 +30,9 @@
                 app:title="Profile"
                 app:titleTextColor="@color/white"
                 app:navigationIcon="?attr/homeAsUpIndicator"
+                app:titleTextAppearance="@style/Toolbar.TitleText"
                 />
         </com.google.android.material.appbar.AppBarLayout>
-
-
 
 
         <androidx.cardview.widget.CardView android:layout_height="wrap_content"
@@ -59,17 +58,18 @@
                     android:layout_height="match_parent"
                     android:text="@string/nama"
                     android:layout_gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="14sp"
                     android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/nomor_telepon"
                     android:layout_gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="14sp"
                     android:textColor="@color/white"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginBottom="20dp"
                     />
             </LinearLayout>
 
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="Akun"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/color_judul"
                 android:textStyle="bold"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:text="Service"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/color_judul"
                 android:textStyle="bold"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
@@ -148,6 +148,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_btn_infoapps"
                 android:background="@color/white"/>
+
 
 
 

@@ -28,7 +28,7 @@
 
             <ImageButton
                 android:id="@+id/tv_btn_messages"
-                android:layout_width="30dp"
+                android:layout_width="28dp"
                 android:layout_height="21dp"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/ic_mail"
@@ -46,43 +46,52 @@
 
         </RelativeLayout>
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_marginStart="40dp"
         android:layout_height="91dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_backgroundtopmenu"
+        android:backgroundTint="@color/color2"
+        app:cardCornerRadius="15dp"
+        android:layout_below="@id/shimmer_layout"
         android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-           <ImageView
-               android:id="@+id/btn_topup"
-               android:layout_width="52dp"
-               android:layout_height="75dp"
-               android:src="@drawable/icontopup"
-               android:layout_marginStart="40dp"
-               android:layout_marginTop="5dp"/>
+            <ImageView
+                android:id="@+id/btn_topup"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/icontopup"
+                android:layout_marginStart="20dp"
+                android:layout_centerVertical="true"/>
 
-        <ImageView
-            android:id="@+id/btn_transfer"
-            android:layout_width="56dp"
-            android:layout_height="75dp"
-            android:src="@drawable/icontransfer"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="5dp"/>
+            <ImageView
+                android:id="@+id/btn_transfer"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/icontransfer"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"/>
 
-        <ImageView
-            android:id="@+id/btn_terima"
-            android:layout_toRightOf="@+id/btn_transfer"
-            android:layout_width="62dp"
-            android:layout_height="80dp"
-            android:src="@drawable/iconterima"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="5dp"/>
+            <ImageView
+                android:id="@+id/btn_terima"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/iconterima"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                />
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
 
 
 
@@ -91,7 +100,7 @@
     <FrameLayout
         android:id="@+id/fl_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
@@ -101,8 +110,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/bottom_nav"
         app:itemBackground="@color/white"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
+        app:itemIconTint="@color/color1"
+        app:itemTextColor="@color/color1"
         app:menu="@menu/menu_navigation"
         android:layout_alignParentBottom="true"
         app:labelVisibilityMode="unlabeled"

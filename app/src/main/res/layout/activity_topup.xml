@@ -4,37 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3E3E3"
+    android:background="@color/color_background"
     tools:context=".activity.topup.TopupActivity">
 
-    <ImageButton
-        android:id="@+id/btn_back_topup"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_topup"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow_back"
-        android:layout_toLeftOf="@id/tv_pilih_metode_top_up"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/color2"
-        />
+        android:background="@color/color1">
 
-    <TextView
-        android:id="@+id/tv_pilih_metode_top_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_metode_top_up"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_topup"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/Theme.ToolbarSaya"
+            android:background="@color/color1"
+            app:title="Pilih Metode Topup"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.cardview.widget.CardView
         android:id="@+id/card_view_merchant_topup"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_below="@id/tv_pilih_metode_top_up"
+        android:layout_below="@id/appbar_topup"
         android:layout_centerInParent="true"
         app:cardCornerRadius="20dp"
         android:layout_marginTop="50dp">
@@ -128,7 +124,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BRI"
+                    android:text="Transfer"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"

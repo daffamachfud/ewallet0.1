@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-  android:background="@color/white"
+  android:background="@color/color_background"
     tools:context=".activity.BottomNavigationActivity.history.pembayaran.HistoryPembayaranFragment">
 
 
@@ -11,8 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list_history_pembayaran"
-        >
+        android:outlineAmbientShadowColor="@color/color_subjudul"
+        android:outlineSpotShadowColor="@color/color_subjudul"
+        />
 
-    </androidx.recyclerview.widget.RecyclerView>
+
 
 </LinearLayout>

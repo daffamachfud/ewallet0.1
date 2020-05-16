@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/color_background"
     tools:context=".activity.topup.TopupMerchantActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_topup_booth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color1">
@@ -21,25 +22,36 @@
             app:title="Top up Booth"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
-
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
-        android:layout_width="227dp"
-        android:layout_height="103dp"
-        android:src="@drawable/ic_icontopupmerchant"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:layout_below="@id/toolbar_topup_booth"
-        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_gambar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/appbar_topup_booth"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:layout_width="227dp"
+            android:layout_height="103dp"
+            android:src="@drawable/ic_icontopupmerchant"
+            android:layout_gravity="center"
+            android:layout_below="@id/toolbar_topup_booth"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <androidx.cardview.widget.CardView
+        android:layout_below="@id/cv_gambar"
         android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
-        android:backgroundTint="#F1F1F1"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="10dp">
 
      <LinearLayout
@@ -54,7 +66,7 @@
              android:layout_height="wrap_content"
              android:text="Ikuti langkah-langkah berikut :"
              android:textStyle="bold"
-             android:textColor="@color/black"
+             android:textColor="@color/color_judul"
              android:textSize="18sp"
              />
 
@@ -62,8 +74,8 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="1. Kunjungi booth top up di kampus anda"
-             android:textColor="@color/black"
-             android:textSize="18sp"
+             android:textColor="@color/color_subjudul"
+             android:textSize="14sp"
              android:layout_marginTop="10dp"
              />
 
@@ -71,8 +83,8 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="2. Informasikan berapa nominal top up yang anda butuhkan kepada admin"
-             android:textColor="@color/black"
-             android:textSize="18sp"
+             android:textColor="@color/color_subjudul"
+             android:textSize="14sp"
              android:layout_marginTop="10dp"
              />
 
@@ -80,8 +92,8 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="3. Berikan uang tunai sesuai nominal top up pada admin"
-             android:textColor="@color/black"
-             android:textSize="18sp"
+             android:textColor="@color/color_subjudul"
+             android:textSize="14sp"
              android:layout_marginTop="10dp"
              />
 
@@ -89,16 +101,16 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="4. Informasikan kepada admin nomor telepon anda yang terdaftar pada aplikasi"
-             android:textColor="@color/black"
-             android:textSize="18sp"
+             android:textColor="@color/color_subjudul"
+             android:textSize="14sp"
              android:layout_marginTop="10dp"
              />
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="5. Tunggu proses top up"
-             android:textColor="@color/black"
-             android:textSize="18sp"
+             android:textColor="@color/color_subjudul"
+             android:textSize="14sp"
              android:layout_marginTop="10dp"
              />
 

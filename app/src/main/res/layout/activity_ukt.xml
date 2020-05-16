@@ -22,6 +22,7 @@
             app:title="Pembayaran UKT"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -49,8 +50,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Cari Universitas"
                 android:background="@color/color_background"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
                 android:textColorHint="@color/color2"
                 android:outlineAmbientShadowColor="@color/color2"
                 android:outlineSpotShadowColor="@color/color2"
@@ -71,6 +70,7 @@
         android:layout_below="@+id/cardview_search_ukt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@color/white">
 
         <androidx.recyclerview.widget.RecyclerView

@@ -22,6 +22,7 @@
             app:title="Detail Event"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             />
     </com.google.android.material.appbar.AppBarLayout>
     
@@ -38,16 +39,14 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@id/img_detail_event"
-        android:background="@color/white"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginEnd="10dp">
 
             <TextView
@@ -55,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Event"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 />
@@ -68,24 +67,25 @@
                 >
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_location_on_black_24dp"
+                    android:layout_gravity="center_vertical"
                     />
                 <TextView
                     android:id="@+id/tv_nama_tempat_event_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Tempat event"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/color_subjudul"
                     android:layout_marginEnd="10dp"
                     android:layout_gravity="center_vertical"
                     />
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_event_black_24dp"
                     />
                 <TextView
@@ -93,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tanggal Acara "
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/color_subjudul"
                     />
@@ -113,8 +113,8 @@
     <androidx.cardview.widget.CardView
         android:layout_below="@+id/cv_event_detail_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_height="200dp"
+        android:layout_marginTop="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -128,7 +128,9 @@
                 android:textColor="@color/color_judul"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_margin="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 />
 
             <TextView

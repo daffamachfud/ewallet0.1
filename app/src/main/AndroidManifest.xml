@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.onoh.ewallet01">
+    package="com.onoh.ewallet02">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.donasi.FormDonasiActivity"></activity>
+        <activity android:name=".activity.BottomNavigationActivity.history.pembayaran.DetailHistoryPembayaran"></activity>
+        <activity android:name=".activity.donasi.FormDonasiActivity" />
         <activity android:name=".activity.donasi.DetailDonasiActivity" />
         <activity android:name=".activity.event.BeliTiketActivity" />
         <activity android:name=".activity.event.DetailEventActivity" />
@@ -48,11 +49,15 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.RegisterActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 </manifest>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.BottomNavigationActivity.history.HistoryActivity"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/color_background"
     >
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,7 +15,7 @@
         android:background="@color/color1">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_payment_details"
+            android:id="@+id/toolbar_history"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/Theme.ToolbarSaya"
@@ -23,6 +23,7 @@
             app:title="History"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             />
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -19,9 +19,10 @@
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/Theme.ToolbarSaya"
             android:background="@color/color1"
-            app:title="Donasi"
+            app:title="Form Donasi"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -45,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Donasi"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 />
@@ -61,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Terkumpul :"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/color_judul"
                     android:layout_marginEnd="10dp"
                     android:layout_gravity="center_vertical"
@@ -71,15 +72,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp.2.000.000"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/color_subjudul"
                     android:layout_marginEnd="10dp"
                     android:layout_gravity="center_vertical"
                     />
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_event_black_24dp"
                     />
                 <TextView
@@ -87,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tanggal Donasi "
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/color_subjudul"
                     />

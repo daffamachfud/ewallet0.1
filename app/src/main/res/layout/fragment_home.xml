@@ -1,91 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:outlineAmbientShadowColor="@color/color2"
+    android:outlineSpotShadowColor="@color/color2">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_pembayaran"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:background="@color/white">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_pembayaran"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="120dp"
+            android:background="@color/white">
 
-            <ImageButton
-                android:id="@+id/btn_ukt"
-                android:layout_width="42dp"
-                android:layout_height="58dp"
-                android:src="@drawable/ic_buttonukt"
-                android:backgroundTint="@color/white"
-                android:background="@color/white"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="50dp"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                >
 
-            <ImageButton
-                android:id="@+id/btn_donasi"
-                android:layout_width="42dp"
-                android:layout_height="59dp"
-                android:src="@drawable/ic_buttondonasi"
-                android:backgroundTint="@color/white"
-                android:background="@color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
-                />
+                <ImageButton
+                    android:id="@+id/btn_ukt"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_buttonukt"
+                    android:backgroundTint="@color/white"
+                    android:background="@color/white"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_centerVertical="true"
+                    />
 
-            <ImageButton
-                android:id="@+id/btn_tiket"
-                android:layout_width="82dp"
-                android:layout_height="61dp"
-                android:src="@drawable/ic_buttoneventormawa"
-                android:backgroundTint="@color/white"
-                android:background="@color/white"
+                <ImageButton
+                    android:id="@+id/btn_donasi"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_buttondonasi"
+                    android:backgroundTint="@color/white"
+                    android:background="@color/white"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="50dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btn_tiket"
+                    android:layout_width="82dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_buttoneventormawa"
+                    android:backgroundTint="@color/white"
+                    android:background="@color/white"
+                   android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="50dp"
+                    />
+
+            </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="30dp"
-                android:layout_marginTop="50dp"
-                />
-
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pembayaran"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/color_subjudul"
-            android:layout_margin="20dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp">
 
 
 
-        </LinearLayout>
+            </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tes"
         android:layout_below="@+id/cardview_pembayaran"
         app:cardCornerRadius="6dp"
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        
+
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/imageSlider"
             android:layout_width="match_parent"
@@ -106,5 +108,37 @@
 
     </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/tes"
+            app:cardCornerRadius="6dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</RelativeLayout>
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</ScrollView>

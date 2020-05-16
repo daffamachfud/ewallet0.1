@@ -22,13 +22,14 @@
             app:title="Limit Penggunaan"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_below="@+id/appbar_limituang"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="150dp"
         android:backgroundTint="@color/color1"
         android:id="@+id/cardview_limit"
         >
@@ -43,18 +44,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Limit"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="28sp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Batasi penggunaan uang anda"
                 android:textColor="@color/white"
-                android:textSize="28sp"/>
+                android:textSize="22sp"/>
             >
         </LinearLayout>
 
@@ -75,10 +67,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Saldo anda,"
+            android:text="Saldo anda : "
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="28sp"
+            android:textSize="22sp"
             />
 
         <TextView
@@ -87,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="Rp.2.000.000"
             android:textColor="@color/black"
-            android:textSize="24sp"/>
+            android:textSize="16sp"/>
         >
     </LinearLayout>
 
@@ -96,7 +88,9 @@
         android:layout_width="350dp"
         android:layout_height="150dp"
         app:cardCornerRadius="40dp"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/layout_tv_saldo"
        >
 
         <TextView
@@ -104,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Masukan Nomor Telepon Tujuan"
-            android:textColor="@color/black"
+            android:textColor="@color/color_judul"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
