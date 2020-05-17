@@ -52,7 +52,7 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
             Toast.makeText(OtpActivity.this, "Salah BRO!", Toast.LENGTH_SHORT).show();
         }
 
-        Intent intentOtpBerhasil = new Intent(OtpActivity.this,PinActivity.class);
+        Intent intentOtpBerhasil = new Intent(OtpActivity.this, PinRegisterActivity.class);
         startActivity(intentOtpBerhasil);
 
 

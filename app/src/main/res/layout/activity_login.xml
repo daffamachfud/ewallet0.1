@@ -1,89 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/ic_backgroundlogin1"
+    android:background="@color/color1"
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linear_form_login"
+    <TextView
+        android:id="@+id/tv_app_logo_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DEKa"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_login"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:background="@drawable/background_white_radius"
-        android:orientation="vertical"
-        android:layout_marginTop="180dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="90dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color1_dark"
+        app:cardCornerRadius="10dp"
+        android:layout_below="@+id/tv_app_logo_login"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         >
-
-
-        <TextView
-            android:id="@+id/tv_des_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/des_login"
-            android:textColor="@color/black"
-            android:layout_margin="30dp"
-            android:textSize="28sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masuk"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="@color/white"
+                    />
+
+
+
+            </LinearLayout>
+
+
 
             <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="30dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:outlineAmbientShadowColor="@color/white"
+                android:outlineSpotShadowColor="@color/white"
+                app:counterOverflowTextColor="@color/white"
+                android:textColorHint="@color/white"
+                app:counterTextColor="@color/white"
+                app:helperTextTextColor="@color/white"
+                app:boxStrokeColor="@color/white"
+                app:hintTextColor="@color/white"
+                app:boxBackgroundColor="@color/white"
+                >
                 <com.google.android.material.textfield.TextInputEditText
-                   android:id="@+id/et_nomor_telepon_login"
+                    android:id="@+id/et_nomor_telepon_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/nomor_telepon"
-                    android:background="@color/white"
-                    android:layout_margin="20dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:textColorLink="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:shadowColor="@color/white"
+                    android:textColorHighlight="@color/white"
+                    android:background="@color/color1"
+                    android:inputType="number"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/next"
-                android:layout_margin="30dp" />
 
         </LinearLayout>
 
 
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_below="@+id/cv_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color2"
+        android:text="masuk"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
+
+    <LinearLayout
+        android:layout_below="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum punya akun ?"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginEnd="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_daftar_disini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar disini"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            />
+
     </LinearLayout>
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_daftar"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        />
-
-    <Button
-        android:id="@+id/btn_daftar_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/daftar"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
 
 
-
-
-
-</LinearLayout>
+</RelativeLayout>

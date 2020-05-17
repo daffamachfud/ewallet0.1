@@ -53,13 +53,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @BindView(R.id.btn_scan_qr)
     FloatingActionButton btn_scan_qr;
 
+    boolean user_merchant = false;
+    String dataNomorTelepon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        getData();
+        
         // kita set default nya Home Fragment
         loadFragment(new HomeFragment());
         // inisialisasi BottomNavigaionView
@@ -125,6 +129,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             }
         });
 
+
+
     }
 
 
@@ -152,6 +158,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case R.id.profile:
                 Intent profile_intent = new Intent(MainActivity.this, ProfileActivity.class);
+                profile_intent.putExtra("tipeUserMerchant",user_merchant);
+                profile_intent.putExtra("dataNomorTelepon",dataNomorTelepon);
                 startActivity(profile_intent);
                 break;
         }
@@ -213,6 +221,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
     //end shoResultDialoguePemabayran
 
+
+    //getData
+    public void getData() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            dataNomorTelepon = extras.getString("dataNomorTelepon");
+            Toast.makeText(this, dataNomorTelepon, Toast.LENGTH_LONG).show();
+        }
+
+    }
 
 
 }

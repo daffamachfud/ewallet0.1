@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BottomNavigationActivity.history.topup.DetailHistoryTopup"></activity>
+        <activity android:name=".activity.LandingPageActivity"></activity>
+        <activity android:name=".activity.BottomNavigationActivity.history.topup.DetailHistoryTopup" />
         <activity android:name=".activity.BottomNavigationActivity.history.pembayaran.DetailHistoryPembayaran" />
         <activity android:name=".activity.donasi.FormDonasiActivity" />
         <activity android:name=".activity.donasi.DetailDonasiActivity" />
@@ -39,7 +40,8 @@
         <activity android:name=".activity.BottomNavigationActivity.ProfileActivity" />
         <activity android:name=".activity.BottomNavigationActivity.DompetActivity" />
         <activity android:name=".activity.OtpActivity" />
-        <activity android:name=".activity.PinActivity" />
+        <activity android:name=".activity.PinRegisterActivity" />
+        <activity android:name=".activity.PinVerifyActivity" />
         <activity android:name=".activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,10 +57,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

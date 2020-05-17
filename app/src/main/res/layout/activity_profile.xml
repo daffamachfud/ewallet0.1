@@ -63,6 +63,7 @@
                     android:layout_marginTop="10dp"
                     />
                 <TextView
+                    android:id="@+id/tv_no_telp_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/nomor_telepon"
@@ -115,6 +116,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_btnprofilesaya"
+                android:background="@color/white"/>
+
+            <ImageButton
+                android:id="@+id/btnDaftarMerchant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_btndaftarmerchant"
+                android:background="@color/white"/>
+
+            <ImageButton
+                android:id="@+id/btnDompetMerchant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_btndompetmerchant"
                 android:background="@color/white"/>
 
             <TextView

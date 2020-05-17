@@ -20,7 +20,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }finally {
-                    startActivity(new Intent(SplashScreenActivity.this,MainActivity.class));
+//                    startActivity(new Intent(SplashScreenActivity.this,MainActivity.class));
+                    startActivity(new Intent(SplashScreenActivity.this,LandingPageActivity.class));
                     finish();
                 }
             }

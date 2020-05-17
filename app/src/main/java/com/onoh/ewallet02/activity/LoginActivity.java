@@ -7,45 +7,67 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.onoh.ewallet02.R;
 import com.onoh.ewallet02.apihelper.BaseApiService;
 import com.onoh.ewallet02.apihelper.UtilsApi;
 
+import java.util.Objects;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class LoginActivity extends AppCompatActivity {
 
-    EditText etNomorTelepon;
     Button btnLogin;
     ProgressDialog loading;
     Context mContext;
     BaseApiService mApiService;
+
+    @BindView(R.id.btn_login)
+    Button btn_login;
+    @BindView(R.id.tv_daftar_disini)
+    TextView tvDaftarDisini;
+    @BindView(R.id.et_nomor_telepon_login)
+    TextInputEditText etNomorTelepon;
+
+    String pageDestination = "login";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
+        ButterKnife.bind(this);
         mContext = this;
         mApiService = UtilsApi.getAPIService();
         initComponent();
 
+
+        tvDaftarDisini.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_daftar = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent_daftar);
+            }
+        });
+
     }
 
     private void initComponent() {
-        etNomorTelepon = (EditText) findViewById(R.id.et_nomor_telepon_login);
 
-        btnLogin = (Button) findViewById(R.id.btn_login);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-                String nomorTelepon = etNomorTelepon.getText().toString();
-                Intent intentRegister = new Intent(LoginActivity.this, PinActivity.class);
-                intentRegister.putExtra("dataPassword",nomorTelepon);
-                startActivity(intentRegister);
+                String nomorTelepon = Objects.requireNonNull(etNomorTelepon.getText()).toString();
+                Intent intent_login = new Intent(LoginActivity.this, PinVerifyActivity.class);
+                intent_login.putExtra("dataNomorTelepon",nomorTelepon);
+                intent_login.putExtra("destinationView",pageDestination);
+                startActivity(intent_login);
             }
         });
 

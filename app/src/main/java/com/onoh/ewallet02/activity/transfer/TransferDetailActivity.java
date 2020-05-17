@@ -3,6 +3,7 @@ package com.onoh.ewallet02.activity.transfer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.onoh.ewallet02.R;
+import com.onoh.ewallet02.activity.PinRegisterActivity;
+import com.onoh.ewallet02.activity.PinVerifyActivity;
 import com.onoh.ewallet02.model.MoneyTextWatcher;
 
 import java.util.Objects;
@@ -60,6 +63,8 @@ public class TransferDetailActivity extends AppCompatActivity {
 
 
         etNominalTransfer.addTextChangedListener(new MoneyTextWatcher(etNominalTransfer));
+
+        verifyPin();
     }
 
 
@@ -74,6 +79,17 @@ public class TransferDetailActivity extends AppCompatActivity {
 
     public void setTvTujuan(String tujuan){
         tv_tujuan_trasnfer.setText(tujuan);
+    }
+
+
+    public void verifyPin(){
+        btnTransfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_pin = new Intent(TransferDetailActivity.this, PinVerifyActivity.class);
+                startActivity(intent_pin);
+            }
+        });
     }
 
 

@@ -15,9 +15,9 @@ import com.onoh.ewallet02.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PinActivity extends AppCompatActivity {
+public class PinRegisterActivity extends AppCompatActivity {
 
-    private final static String TAG = PinActivity.class.getSimpleName();
+    private final static String TAG = PinRegisterActivity.class.getSimpleName();
     private final static String TRUE_CODE = "123456";
 
     @BindView(R.id.pin_lock_view) PinLockView mPinLockView;
@@ -39,12 +39,12 @@ public class PinActivity extends AppCompatActivity {
         mPinLockView.setPinLockListener(new PinLockListener() {
             @Override
             public void onComplete(String pin) {
-                Toast.makeText(PinActivity.this,"Berhasil",Toast.LENGTH_LONG).show();
+                Toast.makeText(PinRegisterActivity.this,"Berhasil",Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onEmpty() {
-                Toast.makeText(PinActivity.this,"Kosong",Toast.LENGTH_LONG).show();
+                Toast.makeText(PinRegisterActivity.this,"Kosong",Toast.LENGTH_LONG).show();
 
             }
 

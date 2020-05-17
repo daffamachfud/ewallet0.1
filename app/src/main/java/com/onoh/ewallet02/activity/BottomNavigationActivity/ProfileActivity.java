@@ -8,6 +8,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -26,6 +28,15 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton btn_myqr;
     @BindView(R.id.toolbar_profile)
     Toolbar toolbar_profile;
+    @BindView(R.id.btnDaftarMerchant)
+    ImageButton btnDaftarMerchant;
+    @BindView(R.id.btnDompetMerchant)
+    ImageButton btnDompetMerchant;
+    @BindView(R.id.tv_no_telp_profile)
+    TextView tvNomorTelepon;
+
+    String dataNomorTelepon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
+        getData();
 
 
     }
@@ -72,12 +83,34 @@ public class ProfileActivity extends AppCompatActivity {
             Intent intent_terima = new Intent(ProfileActivity.this, TerimaActivity.class);
             intent_terima.putExtra("myqr",bitmap);
             intent_terima.putExtra("namaUser",namaUser);
-            intent_terima.putExtra("nomorTelepon",nomorTelepon);
+            intent_terima.putExtra("nomorTelepon",dataNomorTelepon);
             startActivity(intent_terima);
         }catch (WriterException e){
             e.printStackTrace();
         }
     }
 
+
+    public void getData(){
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+
+            dataNomorTelepon = extras.getString("dataNomorTelepon");
+            tvNomorTelepon.setText(dataNomorTelepon);
+            Toast.makeText(this, dataNomorTelepon, Toast.LENGTH_LONG).show();
+
+            boolean tipeUser = extras.getBoolean("tipeUserMerchant");
+
+            if (tipeUser){
+                btnDaftarMerchant.setVisibility(View.GONE);
+                btnDompetMerchant.setVisibility(View.VISIBLE);
+            }else{
+                btnDompetMerchant.setVisibility(View.GONE);
+                btnDaftarMerchant.setVisibility(View.VISIBLE);
+
+            }
+
+        }
+    }
 
 }
