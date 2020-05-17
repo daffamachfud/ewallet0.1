@@ -5,22 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
-    tools:context="com.onoh.ewallet02.activity.BottomNavigationActivity.history.pembayaran.DetailHistoryPembayaran">
-
+    tools:context="com.onoh.ewallet02.activity.BottomNavigationActivity.history.topup.DetailHistoryTopup">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar_detail_history_pembayaran"
+        android:id="@+id/appbar_detail_history_topup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color1">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_detail_history_pembayaran"
+            android:id="@+id/toolbar_detail_history_topup"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/Theme.ToolbarSaya"
             android:background="@color/color1"
-            app:title="Detail History Pembayaran"
+            app:title="Detail History Topup"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:titleTextAppearance="@style/Toolbar.TitleText"
@@ -31,7 +30,7 @@
         android:id="@+id/cv_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/appbar_detail_history_pembayaran"
+        android:layout_below="@+id/appbar_detail_history_topup"
         android:background="@color/white"
         android:outlineAmbientShadowColor="@color/color_subjudul"
         android:outlineSpotShadowColor="@color/color_subjudul">
@@ -66,7 +65,7 @@
                     android:textColor="@color/color_subjudul"
                     />
                 <TextView
-                    android:id="@+id/id_user_detail_history_pembayaran"
+                    android:id="@+id/tv_id_user_history_topup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="089675762942"
@@ -93,7 +92,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/tv_tgl_transaksi_historybayar_detail"
+                    android:id="@+id/tv_tgl_transaksi_historytopup_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="23 Des 2020"
@@ -111,7 +110,7 @@
 
                     />
                 <TextView
-                    android:id="@+id/tv_waktu_historybayar_detail"
+                    android:id="@+id/tv_waktu_topup_history_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="08:00"
@@ -122,29 +121,29 @@
             </LinearLayout>
 
 
-          <LinearLayout
-              android:orientation="horizontal"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_gravity="center_horizontal"
-              >
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                >
 
-              <ImageView
-                  android:layout_width="20dp"
-                  android:layout_height="20dp"
-                  android:src="@color/grey"
-                  android:id="@+id/img_stat_detail_historybayar"
-                  />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@color/grey"
+                    android:id="@+id/img_stat_detail_history_topup"
+                    />
 
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_marginStart="10dp"
-                  android:text="Status"
-                  android:id="@+id/tv_stat_detail_history_bayar"
-                  />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Status"
+                    android:id="@+id/tv_stat_detail_history_topup"
+                    />
 
-          </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -155,21 +154,13 @@
                 >
 
                 <TextView
-                    android:id="@+id/tv_tipe_detail_history_bayar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pembayaran Pujas"
-                android:textColor="@color/color_judul"
-                    android:layout_marginEnd="100dp"
-                android:textSize="14sp"/>
-
-                <TextView
-                    android:id="@+id/tv_tujuan_detail_history_bayar"
+                    android:id="@+id/tv_tipe_detail_history_topup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Toko Geprek"
+                    android:text="Merchant"
                     android:textColor="@color/color_judul"
                     android:textSize="14sp"/>
+
             </LinearLayout>
 
 
@@ -188,7 +179,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     android:text="Rp.20.000"
-                    android:id="@+id/tv_nominal_detail_history_bayar"
+                    android:id="@+id/tv_nominal_detail_history_topup"
                     />
             </androidx.cardview.widget.CardView>
 
@@ -217,7 +208,7 @@
                     android:textSize="14sp"/>
 
                 <TextView
-                    android:id="@+id/tv_id_history_topup_bayar"
+                    android:id="@+id/tv_id_history_topup_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="`112345678"
@@ -240,6 +231,5 @@
 
 
     </androidx.cardview.widget.CardView>
-
 
 </RelativeLayout>

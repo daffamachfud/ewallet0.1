@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BottomNavigationActivity.history.pembayaran.DetailHistoryPembayaran"></activity>
+        <activity android:name=".activity.BottomNavigationActivity.history.topup.DetailHistoryTopup"></activity>
+        <activity android:name=".activity.BottomNavigationActivity.history.pembayaran.DetailHistoryPembayaran" />
         <activity android:name=".activity.donasi.FormDonasiActivity" />
         <activity android:name=".activity.donasi.DetailDonasiActivity" />
         <activity android:name=".activity.event.BeliTiketActivity" />
@@ -54,10 +55,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

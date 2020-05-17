@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.onoh.ewallet02.R;
+import com.onoh.ewallet02.activity.BottomNavigationActivity.history.topup.RecycleViewHistoryTopupAdapter;
 import com.onoh.ewallet02.model.HistoryPembayaran;
+import com.onoh.ewallet02.model.HistoryTopup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +23,11 @@ import java.util.List;
 
 public class HistoryPembayaranFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    private RecycleViewHistoryPembayaranAdapter adapter;
+    private ArrayList<HistoryPembayaran> datahistoryPembayaranArrayList;
     View v;
-    private RecyclerView myrecyclerview;
-    private List<HistoryPembayaran> listHistoryPembayaran;
+
 
     public HistoryPembayaranFragment() {
     }
@@ -33,10 +37,11 @@ public class HistoryPembayaranFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         v = inflater.inflate(R.layout.fragment_history_pembayaran,container,false);
-        myrecyclerview = (RecyclerView) v.findViewById(R.id.list_history_pembayaran);
-        RecycleViewHistoryPembayaranAdapter recycleViewAdapter = new RecycleViewHistoryPembayaranAdapter(getContext(),listHistoryPembayaran);
-        myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
-        myrecyclerview.setAdapter(recycleViewAdapter);
+        recyclerView = (RecyclerView) v.findViewById(R.id.list_history_pembayaran);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        adapter = new RecycleViewHistoryPembayaranAdapter(datahistoryPembayaranArrayList);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
 
         return v;
     }
@@ -46,10 +51,9 @@ public class HistoryPembayaranFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        listHistoryPembayaran = new ArrayList<>();
-        listHistoryPembayaran.add(new HistoryPembayaran("20 Desember 2020","08:00","Pembayaran Pujas","Toko Geprek","-Rp.200.000","Berhasil","12345678"));
-        listHistoryPembayaran.add(new HistoryPembayaran("20 Desember 2020","08:00","Pembayaran Pujas","Toko Geprek","-Rp.200.000","Berhasil","12345678"));
-        listHistoryPembayaran.add(new HistoryPembayaran("20 Desember 2020","08:00","Pembayaran Pujas","Toko Geprek","-Rp.200.000","Berhasil","12345678"));
+        datahistoryPembayaranArrayList = new ArrayList<>();
+        datahistoryPembayaranArrayList.add(new HistoryPembayaran("20 Desember 2020","08:00","Pembayaran Pujas","Toko Geprek","-Rp.200.000","Berhasil","12345678"));
+        datahistoryPembayaranArrayList.add(new HistoryPembayaran("22 Desember 2020","09:00","Donasi","Bantuan Air","-Rp.100.000","Gagal","4567890"));
 
     }
 }
