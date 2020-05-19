@@ -12,11 +12,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.onoh.ewallet02.R;
-import com.onoh.ewallet02.activity.BottomNavigationActivity.history.pembayaran.DetailHistoryPembayaran;
-import com.onoh.ewallet02.activity.donasi.DetailDonasiActivity;
-import com.onoh.ewallet02.activity.donasi.RecycleViewDonasiAdapter;
-import com.onoh.ewallet02.model.Donasi;
-import com.onoh.ewallet02.model.HistoryPembayaran;
 import com.onoh.ewallet02.model.HistoryTopup;
 
 import org.jetbrains.annotations.NotNull;

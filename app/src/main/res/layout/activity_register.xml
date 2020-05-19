@@ -73,13 +73,14 @@
                     app:errorTextColor="@color/design_default_color_error"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_email_daftar"
+                        android:id="@+id/et_nama_daftar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/email"
+                        android:hint="@string/nama"
                         android:background="@color/color1"
                         android:layout_margin="20dp"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/white"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,6 +106,7 @@
                         android:background="@color/color1"
                         android:layout_margin="20dp"
                         android:inputType="number"
+                        android:textColor="@color/white"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,13 +125,14 @@
                     app:errorTextColor="@color/design_default_color_error"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_nomor_telepon_daftar"
+                        android:id="@+id/et_email_daftar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/nama"
+                        android:hint="@string/email"
                         android:background="@color/color1"
                         android:layout_margin="20dp"
-                        android:inputType="textPersonName"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/white"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 

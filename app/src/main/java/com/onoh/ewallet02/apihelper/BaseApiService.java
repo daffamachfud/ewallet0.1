@@ -16,8 +16,10 @@ public interface BaseApiService {
 
 
     @FormUrlEncoded
-    @POST("register.php")
-    Call<ResponseBody> registerRequest(@Field("nama") String nama,
-                                       @Field("email") String email,
-                                       @Field("password") String pin);
+    @POST("register")
+    Call<ResponseBody> postRegister(@Field("nama") String nama,
+                                    @Field("email") String email,
+                                    @Field("nomor_telepon") String nomor_telepon,
+                                    @Field("password") String pin,
+                                    @Field("password_confirmation") String pin_confirmation);
 }
