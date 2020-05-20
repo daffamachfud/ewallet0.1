@@ -4,10 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,11 +17,18 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.onoh.ewallet02.R;
 import com.onoh.ewallet02.apihelper.BaseApiService;
 import com.onoh.ewallet02.apihelper.UtilsApi;
+import com.onoh.ewallet02.model.response.UserResponse;
+import com.onoh.ewallet02.model.utils.SharedPrefManager;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -63,55 +72,48 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-                String nomorTelepon = Objects.requireNonNull(etNomorTelepon.getText()).toString();
-                Intent intent_login = new Intent(LoginActivity.this, PinVerifyActivity.class);
-                intent_login.putExtra("dataNomorTelepon",nomorTelepon);
-                intent_login.putExtra("destinationView",pageDestination);
-                startActivity(intent_login);
+                String get_data_nomor_telepon = Objects.requireNonNull(etNomorTelepon.getText()).toString();
+               cek_nomor(get_data_nomor_telepon);
             }
         });
 
     }
 
-//    private void requestLogin(){
-//        mApiService.loginRequest(etEmail.getText().toString(), etPass.getText().toString())
-//                .enqueue(new Callback<ResponseBody>() {
-//                    @Override
-//                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                        if (response.isSuccessful()){
-//                            loading.dismiss();
-//                            try {
-//                                assert response.body() != null;
-//                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
-//                                if (jsonRESULTS.getString("error").equals("false")){
-//                                    // Jika login berhasil maka data nama yang ada di response API
-//                                    // akan diparsing ke activity selanjutnya.
-//                                    Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
-//                                    String name = jsonRESULTS.getJSONObject("user").getString("name");
-//                                    Intent intent = new Intent(mContext, MainActivity.class);
-//                                    intent.putExtra("result_nama", name);
-//                                    startActivity(intent);
-//                                } else {
-//                                    // Jika login gagal
-//                                    String error_message = jsonRESULTS.getString("error_msg");
-//                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
-//                                }
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                        } else {
-//                            loading.dismiss();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                        Log.e("debug", "onFailure: ERROR > " + t.toString());
-//                        loading.dismiss();
-//                    }
-//                });
-//    }
 
+
+    public void cek_nomor(String nomorTelepon){
+        Call<UserResponse> post_cek_nomor =mApiService.post_check_mumber(nomorTelepon);
+        post_cek_nomor.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(@NotNull Call<UserResponse> call, @NotNull Response<UserResponse> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        assert response.body() != null;
+                        if (response.body().getStatus() == 201 ){
+                            Intent intent = new Intent(mContext, PinVerifyActivity.class);
+                            intent.putExtra("dataNomorTelepon",nomorTelepon);
+                            intent.putExtra("destinationView",pageDestination);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    loading.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+                loading.dismiss();
+            }
+        });
+    }
+
+//
 }

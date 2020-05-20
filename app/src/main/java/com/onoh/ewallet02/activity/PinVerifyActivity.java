@@ -1,5 +1,7 @@
 package com.onoh.ewallet02.activity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,9 +13,18 @@ import com.andrognito.pinlockview.IndicatorDots;
 import com.andrognito.pinlockview.PinLockListener;
 import com.andrognito.pinlockview.PinLockView;
 import com.onoh.ewallet02.R;
+import com.onoh.ewallet02.apihelper.BaseApiService;
+import com.onoh.ewallet02.apihelper.UtilsApi;
+import com.onoh.ewallet02.model.response.UserResponse;
+import com.onoh.ewallet02.model.utils.SharedPrefManager;
+
+import org.jetbrains.annotations.NotNull;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PinVerifyActivity extends AppCompatActivity {
 
@@ -24,8 +35,11 @@ public class PinVerifyActivity extends AppCompatActivity {
     PinLockView mPinLockView;
     @BindView(R.id.indicator_dots)
     IndicatorDots mIndicatorDots;
-
-    String destination,dataNomor;
+    ProgressDialog loading;
+    Context mContext;
+    BaseApiService mApiService;
+    SharedPrefManager sharedPrefManager;
+    String destination,dataNomor,pin_confirm;
 
 
     @Override
@@ -33,6 +47,10 @@ public class PinVerifyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
         ButterKnife.bind(this);
+        mContext = this;
+        mApiService = UtilsApi.getAPIService();
+        sharedPrefManager = new SharedPrefManager(this);
+        //get data intent
         getData();
         //attach lockview dengan indicator
         mPinLockView.attachIndicatorDots(mIndicatorDots);
@@ -43,13 +61,11 @@ public class PinVerifyActivity extends AppCompatActivity {
         mPinLockView.setPinLockListener(new PinLockListener() {
             @Override
             public void onComplete(String pin) {
-                if (pin.equals(TRUE_CODE)) {
+                    pin_confirm = pin;
                     if (destination.equals("login")) {
-                        Intent intent_mainactivity = new Intent(PinVerifyActivity.this, MainActivity.class);
-                        intent_mainactivity.putExtra("dataNomorTelepon",dataNomor);
-                        startActivity(intent_mainactivity);
+                        loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                        requestLogin();
                     }
-                }
 
 
             }
@@ -74,6 +90,46 @@ public class PinVerifyActivity extends AppCompatActivity {
             destination = extras.getString("destinationView");
             dataNomor = extras.getString("dataNomorTelepon");
         }
+    }
 
+    public void requestLogin(){
+        Call<UserResponse> postLogin =mApiService.postLogin(dataNomor,pin_confirm);
+        postLogin.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(@NotNull Call<UserResponse> call, @NotNull Response<UserResponse> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        assert response.body() != null;
+                        if (response.body().getStatus() == 201 && !(response.body().getData()==null)){
+                            sharedPrefManager.saveSPInt(SharedPrefManager.SP_ID, response.body().getData().getUser().getId());
+                            sharedPrefManager.saveSPString(SharedPrefManager.SP_TOKEN, response.body().getData().getToken().getToken());
+                            sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+
+                            String nama = response.body().getData().getUser().getNama();
+                            String nomor_telepon = response.body().getData().getUser().getNomorTelepon();
+
+                            Intent intent = new Intent(mContext, MainActivity.class);
+                            intent.putExtra("result_nama", nama);
+                            intent.putExtra("result_nomor_telepon", nomor_telepon);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(mContext, "GAGAL", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    loading.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+                loading.dismiss();
+            }
+        });
     }
 }

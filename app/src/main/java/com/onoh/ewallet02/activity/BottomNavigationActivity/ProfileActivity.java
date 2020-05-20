@@ -34,8 +34,10 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton btnDompetMerchant;
     @BindView(R.id.tv_no_telp_profile)
     TextView tvNomorTelepon;
+    @BindView(R.id.tv_nama_profile)
+    TextView tvNama;
 
-    String dataNomorTelepon;
+    String dataNomorTelepon,dataNama;
 
 
     @Override
@@ -96,8 +98,10 @@ public class ProfileActivity extends AppCompatActivity {
         if(extras != null) {
 
             dataNomorTelepon = extras.getString("dataNomorTelepon");
+            dataNama = extras.getString("dataNama");
+
             tvNomorTelepon.setText(dataNomorTelepon);
-            Toast.makeText(this, dataNomorTelepon, Toast.LENGTH_LONG).show();
+            tvNama.setText(dataNama);
 
             boolean tipeUser = extras.getBoolean("tipeUserMerchant");
 

@@ -1,6 +1,9 @@
 package com.onoh.ewallet02.apihelper;
 
 
+import com.onoh.ewallet02.model.response.User;
+import com.onoh.ewallet02.model.response.UserResponse;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -11,15 +14,19 @@ public interface BaseApiService {
     // Fungsi ini untuk memanggil API localhost/api/login
     @FormUrlEncoded
     @POST("login")
-    Call<ResponseBody> loginRequest(@Field("email") String email,
+    Call<UserResponse> postLogin(@Field("nomor_telepon") String nomor_telepon,
                                     @Field("password") String password);
 
 
     @FormUrlEncoded
     @POST("register")
-    Call<ResponseBody> postRegister(@Field("nama") String nama,
-                                    @Field("email") String email,
-                                    @Field("nomor_telepon") String nomor_telepon,
-                                    @Field("password") String pin,
-                                    @Field("password_confirmation") String pin_confirmation);
+    Call<UserResponse> postRegister(@Field("nama") String nama,
+                            @Field("email") String email,
+                            @Field("nomor_telepon") String nomor_telepon,
+                            @Field("password") String pin,
+                            @Field("password_confirmation") String pin_confirmation);
+
+    @FormUrlEncoded
+    @POST("cek_nomor")
+    Call<UserResponse> post_check_mumber(@Field("nomor_telepon") String nomor_telepon);
 }

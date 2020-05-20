@@ -32,6 +32,7 @@ import com.onoh.ewallet02.activity.terima.TerimaActivity;
 import com.onoh.ewallet02.activity.topup.TopupActivity;
 import com.onoh.ewallet02.activity.transfer.TransferActivity;
 import com.onoh.ewallet02.fragment.HomeFragment;
+import com.onoh.ewallet02.model.utils.SharedPrefManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,14 +55,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     FloatingActionButton btn_scan_qr;
 
     boolean user_merchant = false;
-    String dataNomorTelepon;
-
+    String result_nama,result_nomortelepon;
+    int result_id;
+    SharedPrefManager sharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        sharedPrefManager = new SharedPrefManager(this);
+        Toast.makeText(this, sharedPrefManager.getToken()+sharedPrefManager.getUserId(), Toast.LENGTH_SHORT).show();
         getData();
 
         // kita set default nya Home Fragment
@@ -159,7 +163,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.profile:
                 Intent profile_intent = new Intent(MainActivity.this, ProfileActivity.class);
                 profile_intent.putExtra("tipeUserMerchant",user_merchant);
-                profile_intent.putExtra("dataNomorTelepon",dataNomorTelepon);
+                profile_intent.putExtra("dataNomorTelepon",result_nomortelepon);
+                profile_intent.putExtra("dataNama",result_nama);
+
                 startActivity(profile_intent);
                 break;
         }
@@ -226,8 +232,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public void getData() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            dataNomorTelepon = extras.getString("dataNomorTelepon");
-            Toast.makeText(this, dataNomorTelepon, Toast.LENGTH_LONG).show();
+            result_nama = extras.getString("result_nama");
+            result_id = extras.getInt("result_id");
+            result_nomortelepon = extras.getString("result_nomor_telepon");
+
         }
 
     }

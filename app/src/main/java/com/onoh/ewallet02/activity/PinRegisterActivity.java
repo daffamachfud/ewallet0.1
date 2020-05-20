@@ -16,6 +16,8 @@ import com.andrognito.pinlockview.PinLockView;
 import com.onoh.ewallet02.R;
 import com.onoh.ewallet02.apihelper.BaseApiService;
 import com.onoh.ewallet02.apihelper.UtilsApi;
+import com.onoh.ewallet02.model.response.User;
+import com.onoh.ewallet02.model.response.UserResponse;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -120,25 +122,27 @@ public class PinRegisterActivity extends AppCompatActivity {
     }
 
     public void requestDaftar(){
-        mApiService.postRegister(namaDaftar,emailDaftar,nomorTelepon,pin_daftar,pin_confirmation)
-                .enqueue(new Callback<ResponseBody>() {
+        Call<UserResponse> postRegister =mApiService.postRegister(namaDaftar,emailDaftar,nomorTelepon,pin_daftar,pin_confirmation);
+                    postRegister.enqueue(new Callback<UserResponse>() {
                     @Override
-                    public void onResponse(@NotNull Call<ResponseBody> call, @NotNull Response<ResponseBody> response) {
+                    public void onResponse(@NotNull Call<UserResponse> call, @NotNull Response<UserResponse> response) {
                         if (response.isSuccessful()){
                             loading.dismiss();
                             try {
                                 assert response.body() != null;
-                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                if (!jsonRESULTS.getString("token").isEmpty()){
-                                    Toast.makeText(mContext, "BERHASIL Registrasi", Toast.LENGTH_SHORT).show();
-                                    String nama = jsonRESULTS.getJSONObject("user").getString("nama");
-                                    Intent intent = new Intent(mContext, LoginActivity.class);
+                                if (response.body().getStatus() == 201 && !(response.body().getData()==null)){
+                                    String nama = response.body().getData().getUser().getNama();
+                                    String nomor_telepon = response.body().getData().getUser().getNomorTelepon();
+                                    String token = response.body().getData().getToken().getToken();
+                                    Intent intent = new Intent(mContext, OtpActivity.class);
                                     intent.putExtra("result_nama", nama);
+                                    intent.putExtra("result_nomortelepon", nomor_telepon);
+                                    intent.putExtra("result_token", token);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(mContext, "GAGAL", Toast.LENGTH_SHORT).show();
                                 }
-                            } catch (JSONException | IOException e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         } else {
@@ -147,7 +151,7 @@ public class PinRegisterActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    public void onFailure(Call<UserResponse> call, Throwable t) {
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
                         loading.dismiss();
                     }

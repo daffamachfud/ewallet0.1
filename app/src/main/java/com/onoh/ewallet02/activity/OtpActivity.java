@@ -20,7 +20,7 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
 
     @BindView(R.id.pinView) PinView pinview;
     @BindView(R.id.btn_next_otp) Button btn_next_otp;
-    private String data_et_email, data_et_nomor_telepon;
+    private String data_nama, data_nomor_telepon,token;
 
 
     @Override
@@ -30,15 +30,20 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
         ButterKnife.bind(this);
         btn_next_otp.setOnClickListener(this);
 
+
         //menerima data dari intent register activity
         if(getIntent().getExtras() != null){
             Bundle bundle = getIntent().getExtras();
-            data_et_email = bundle.getString("dataEmail");
-            data_et_nomor_telepon = bundle.getString("dataNomorTelepon");
+            data_nama = bundle.getString("result_nama");
+            data_nomor_telepon = bundle.getString("result_nomortelepon");
+            token = bundle.getString("token");
         }else{
-            data_et_email = getIntent().getStringExtra("dataEmail");
-            data_et_nomor_telepon = getIntent().getStringExtra("dataNomorTelepon");
+            data_nama = getIntent().getStringExtra("dataEmail");
+            data_nomor_telepon = getIntent().getStringExtra("dataNomorTelepon");
+            token = getIntent().getStringExtra("result_token");
         }
+
+        Toast.makeText(this, token, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -46,14 +51,14 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
         String otp = Objects.requireNonNull(pinview.getText()).toString();
         String valueyangbener = "1234";
         if(otp.equals(valueyangbener)){
-            Toast.makeText(OtpActivity.this, data_et_email + data_et_nomor_telepon, Toast.LENGTH_LONG).show();
+            Toast.makeText(OtpActivity.this, data_nama + data_nomor_telepon+token, Toast.LENGTH_LONG).show();
             Toast.makeText(OtpActivity.this, "Bener OTP NYA", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(OtpActivity.this, "Salah BRO!", Toast.LENGTH_SHORT).show();
         }
 
-        Intent intentOtpBerhasil = new Intent(OtpActivity.this, PinRegisterActivity.class);
-        startActivity(intentOtpBerhasil);
+//        Intent intentOtpBerhasil = new Intent(OtpActivity.this, PinRegisterActivity.class);
+//        startActivity(intentOtpBerhasil);
 
 
     }
