@@ -9,7 +9,7 @@
     <string name="nama">Nama</string>
     <string name="des_registrasi">Selamat Datang di, DEKa!</string>
     <string name="des_registrasi1">Daftarkan akun mu sebelum menggunakan aplikasi ini.</string>
-    <string name="deskripsi_otp">Masukan kode OTP yang sudah dikrimkan ke nomor telepon anda</string>
+    <string name="deskripsi_otp">Kode OTP telah dikirimkan ke nomor telepon:</string>
     <string name="email">Email</string>
     <string name="insert_pin_desc">Masukan PIN </string>
     <string name="title_home_botnav">Home</string>

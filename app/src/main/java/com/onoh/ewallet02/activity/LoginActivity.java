@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent_daftar = new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent_daftar);
+                finish();
             }
         });
 
@@ -73,6 +74,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
                 String get_data_nomor_telepon = Objects.requireNonNull(etNomorTelepon.getText()).toString();
+                if(get_data_nomor_telepon.isEmpty()){
+                    loading.dismiss();
+                    Toast.makeText(mContext, "Isi nomor telepon anda", Toast.LENGTH_SHORT).show();
+                }
                cek_nomor(get_data_nomor_telepon);
             }
         });

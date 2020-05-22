@@ -165,6 +165,14 @@
                 android:src="@drawable/ic_btn_infoapps"
                 android:background="@color/white"/>
 
+            <Button
+                android:text="logout"
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_exit"
+                android:background="@color/white"/>
+
 
 
 

@@ -61,6 +61,7 @@ public class PinVerifyActivity extends AppCompatActivity {
         mPinLockView.setPinLockListener(new PinLockListener() {
             @Override
             public void onComplete(String pin) {
+                    mPinLockView.resetPinLockView();
                     pin_confirm = pin;
                     if (destination.equals("login")) {
                         loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);

@@ -110,14 +110,12 @@ public class PinRegisterActivity extends AppCompatActivity {
 
     }
 
-
-
     public void getDataDaftar(){
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            namaDaftar = extras.getString("namaDaftar");
-            nomorTelepon = extras.getString("nomorTeleponDaftar");
-            emailDaftar = extras.getString("emailDaftar");
+            namaDaftar = extras.getString("result_nama");
+            nomorTelepon = extras.getString("result_nomortelepon");
+            emailDaftar = extras.getString("result_email");
         }
     }
 
@@ -134,11 +132,12 @@ public class PinRegisterActivity extends AppCompatActivity {
                                     String nama = response.body().getData().getUser().getNama();
                                     String nomor_telepon = response.body().getData().getUser().getNomorTelepon();
                                     String token = response.body().getData().getToken().getToken();
-                                    Intent intent = new Intent(mContext, OtpActivity.class);
+                                    Intent intent = new Intent(mContext, MainActivity.class);
                                     intent.putExtra("result_nama", nama);
                                     intent.putExtra("result_nomortelepon", nomor_telepon);
                                     intent.putExtra("result_token", token);
                                     startActivity(intent);
+                                    finish();
                                 } else {
                                     Toast.makeText(mContext, "GAGAL", Toast.LENGTH_SHORT).show();
                                 }

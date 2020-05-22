@@ -10,6 +10,9 @@ public class Data {
     @SerializedName("token")
     @Expose
     private Token token;
+    @SerializedName("id_otp")
+    @Expose
+    private int id_otp;
 
     public User getUser() {
         return user;
@@ -25,5 +28,13 @@ public class Data {
 
     public void setToken(Token token) {
         this.token = token;
+    }
+
+    public int getIdOtp() {
+        return id_otp;
+    }
+
+    public  void setIdOtp(int id_otp) {
+        this.id_otp = id_otp;
     }
 }

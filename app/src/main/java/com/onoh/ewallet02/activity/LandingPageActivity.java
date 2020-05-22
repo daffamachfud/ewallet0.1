@@ -29,17 +29,18 @@ public class LandingPageActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         sharedPrefManager = new SharedPrefManager(this);
 
-//        if (sharedPrefManager.getSPSudahLogin()) {
-//            startActivity(new Intent(LandingPageActivity.this, MainActivity.class)
-//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-//            finish();
-//        }
+        if (sharedPrefManager.getSPSudahLogin()) {
+            startActivity(new Intent(LandingPageActivity.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
 
         btnMasukLanding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent_login = new Intent(LandingPageActivity.this,LoginActivity.class);
                 startActivity(intent_login);
+
             }
         });
 
@@ -48,8 +49,19 @@ public class LandingPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent_daftar = new Intent(LandingPageActivity.this,RegisterActivity.class);
                 startActivity(intent_daftar);
+
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        sharedPrefManager = new SharedPrefManager(this);
+
+        if (sharedPrefManager.getSPSudahLogin()) {
+            finish();
+        }
+        super.onResume();
     }
 }

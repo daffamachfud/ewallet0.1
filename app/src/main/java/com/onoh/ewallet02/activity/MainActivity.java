@@ -65,8 +65,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         sharedPrefManager = new SharedPrefManager(this);
+
         Toast.makeText(this, sharedPrefManager.getToken()+sharedPrefManager.getUserId(), Toast.LENGTH_SHORT).show();
         getData();
+
+
 
         // kita set default nya Home Fragment
         loadFragment(new HomeFragment());
@@ -165,8 +168,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 profile_intent.putExtra("tipeUserMerchant",user_merchant);
                 profile_intent.putExtra("dataNomorTelepon",result_nomortelepon);
                 profile_intent.putExtra("dataNama",result_nama);
-
                 startActivity(profile_intent);
+
                 break;
         }
         return loadFragment(fragment);
@@ -234,10 +237,23 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         if (extras != null) {
             result_nama = extras.getString("result_nama");
             result_id = extras.getInt("result_id");
-            result_nomortelepon = extras.getString("result_nomor_telepon");
+            result_nomortelepon = extras.getString("result_nomortelepon");
 
         }
 
+    }
+
+    public void cek_session(){
+        if (!sharedPrefManager.getSPSudahLogin()) {
+            startActivity(new Intent(MainActivity.this, LandingPageActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
+    }
+    @Override
+    protected void onResume() {
+       cek_session();
+        super.onResume();
     }
 
 

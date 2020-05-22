@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,9 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.onoh.ewallet02.R;
+import com.onoh.ewallet02.activity.LandingPageActivity;
 import com.onoh.ewallet02.activity.terima.TerimaActivity;
+import com.onoh.ewallet02.model.utils.SharedPrefManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +39,9 @@ public class ProfileActivity extends AppCompatActivity {
     TextView tvNomorTelepon;
     @BindView(R.id.tv_nama_profile)
     TextView tvNama;
-
+    @BindView(R.id.btn_logout)
+    Button logout;
+    SharedPrefManager sharedPrefManager;
     String dataNomorTelepon,dataNama;
 
 
@@ -45,7 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
-
+        sharedPrefManager = new SharedPrefManager(this);
         //back button toolbar
         toolbar_profile.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +63,14 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                myqrcode();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
+                finish();
             }
         });
 

@@ -29,4 +29,14 @@ public interface BaseApiService {
     @FormUrlEncoded
     @POST("cek_nomor")
     Call<UserResponse> post_check_mumber(@Field("nomor_telepon") String nomor_telepon);
+
+
+    @FormUrlEncoded
+    @POST("send_otp")
+    Call<UserResponse> postOtp(@Field("nomor_telepon") String nomor_telepon);
+
+    @FormUrlEncoded
+    @POST("verifikasi_otp")
+    Call<UserResponse> validateOtp(@Field("id_otp") int id_otp,
+                                   @Field("kode_otp") String kode_otp);
 }
